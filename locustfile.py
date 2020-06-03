@@ -34,12 +34,24 @@ data = [{
         'credit_card_expiration_month': '8',
         'credit_card_expiration_year': '2024',
         'credit_card_cvv': '181',
+            },
+            {
+        'email': 'canada@canda.ca',
+        'street_address': '1096 Main St',
+        'zip_code': '16485',
+        'city': 'Toronto',
+        'state': 'Ontario',
+        'country': 'Canada',
+        'credit_card_number': '4432-8015-6152-0454',
+        'credit_card_expiration_month': '8',
+        'credit_card_expiration_year': '2024',
+        'credit_card_cvv': '181',
             }]
 
 class MyUser(HttpUser):
     wait_time = between(1, 3)
     
-    @task(0)
+    @task(10)
     def index(self):
         self.client.get("/")
 
