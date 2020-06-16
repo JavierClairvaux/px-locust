@@ -29,7 +29,7 @@ def postJsonHandler():
 @app.route('/invokust', methods = ['DELETE'])
 def stopLocust():
     if not db.get('running'):
-        return {}, status.HTTP_204_NO_CONTENT
+        return {}, status.HTTP_404_NOT_FOUND
 
     os.kill(db.get('pid'), signal.SIGTERM)
     db.set('running', False)
